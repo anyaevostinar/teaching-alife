@@ -86,7 +86,6 @@ class OrgWorld : public emp::World<Organism> {
       emp::World<Organism>::Update();
 
       emp::vector<size_t> schedule = emp::GetPermutation(random, GetSize());
-      double total_coop = 0;
       for (size_t i: schedule) {
           if (IsOccupied(i) == false) continue; 
 
@@ -96,10 +95,9 @@ class OrgWorld : public emp::World<Organism> {
               DoBirth(*offspring, i);
           }
 
-          total_coop += pop[i]->getCoopProb();
 
       }
-      std::cout << "Average cooperation probability: " << total_coop/GetNumOrgs() <<std::endl;
+      
   }
 
 };
