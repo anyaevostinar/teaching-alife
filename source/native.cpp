@@ -36,10 +36,10 @@ int main(int argc, char* argv[])
 if (args.TestUnknown() == false) exit(0);  // If there are leftover args, throw an error.
 
   std::cout<< config.FILE_NAME() << std::endl;
-  emp::Random random(2);
+  emp::Random random(config.SEED());
   OrgWorld world(random);
 
-  world.SetupOrgFile("Org_Vals_1.dat");
+  world.SetupOrgFile("Org_Vals"+std::to_string(config.SEED())+config.FILE_NAME());
   
 
   emp::Ptr<Organism> new_org = new Organism(&random, 0.5);
