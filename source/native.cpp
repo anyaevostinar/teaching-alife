@@ -35,7 +35,6 @@ int main(int argc, char* argv[])
 }
 if (args.TestUnknown() == false) exit(0);  // If there are leftover args, throw an error.
 
-  std::cout<< config.FILE_NAME() << std::endl;
   emp::Random random(config.SEED());
   OrgWorld world(random);
 
