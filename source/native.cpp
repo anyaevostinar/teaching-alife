@@ -17,7 +17,7 @@ EMP_BUILD_CONFIG(MyConfigType,
     GROUP(DEFAULT, "Default settings for NK model"),
     VALUE(SEED, int, 10, "What value should the random seed be?"), 
     VALUE(START_PROB, double, 0.5, "What cooperation probability value should the starting organism have?"),
-    VALUE(FILE_PATH, string, "", "Output file path"),
+    VALUE(FILE_PATH, std::string, "", "Output file path"),
     VALUE(FILE_NAME, std::string, "_data.dat", "Root output file name")
 )
 

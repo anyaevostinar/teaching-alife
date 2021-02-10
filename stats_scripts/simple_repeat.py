@@ -18,8 +18,8 @@ def silent_cmd(command):
     R script calls unitl all neccesary data is created.'''
     return subprocess.Popen(command, shell=True, stdout=subprocess.PIPE).wait()
 
-print("Copying SymSettings.cfg to "+directory)
-cmd("cp SymSettings.cfg "+directory)
+print("Copying MySettings.cfg to "+directory)
+cmd("cp MySettings.cfg "+directory)
 
 for a in seeds:
     for b in start_probs:
