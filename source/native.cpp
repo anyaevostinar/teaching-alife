@@ -17,6 +17,7 @@ EMP_BUILD_CONFIG(MyConfigType,
     GROUP(DEFAULT, "Default settings for NK model"),
     VALUE(SEED, int, 10, "What value should the random seed be?"), 
     VALUE(START_PROB, double, 0.5, "What cooperation probability value should the starting organism have?"),
+    VALUE(FILE_PATH, string, "", "Output file path"),
     VALUE(FILE_NAME, std::string, "_data.dat", "Root output file name")
 )
 
@@ -38,7 +39,7 @@ if (args.TestUnknown() == false) exit(0);  // If there are leftover args, throw 
   emp::Random random(config.SEED());
   OrgWorld world(random);
 
-  world.SetupOrgFile("Org_Vals"+std::to_string(config.SEED())+config.FILE_NAME());
+  world.SetupOrgFile(config.FILE_PATH()+"Org_Vals"+std::to_string(config.SEED())+config.FILE_NAME());
   
 
   emp::Ptr<Organism> new_org = new Organism(&random, 0.5);
