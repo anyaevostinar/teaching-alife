@@ -42,7 +42,7 @@ if (args.TestUnknown() == false) exit(0);  // If there are leftover args, throw 
   world.SetupOrgFile(config.FILE_PATH()+"Org_Vals"+std::to_string(config.SEED())+config.FILE_NAME());
   
 
-  emp::Ptr<Organism> new_org = new Organism(&random, 0.5);
+  emp::Ptr<Organism> new_org = new Organism(&random, config.START_PROB());
   world.Inject(*new_org);
   world.Resize(100,100);
   

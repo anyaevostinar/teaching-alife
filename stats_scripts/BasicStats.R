@@ -14,7 +14,7 @@ pop_cap <- 10000
 initial_data <- read.table("munged_basic.dat", h=T)
 
 #You can add extra columns with calculations with cbind
-initial_data <-cbind(initial_data, hist_0_prop=initial_data$hist_0/initial_data$count)
+initial_data <-cbind(initial_data, hist_0_prop=initial_data$hist_0/initial_data$count, Treatment=as.factor(initial_data$treatment))
 
 #You can get just a portion of your data with subset
 early <- subset(initial_data, update<20)
