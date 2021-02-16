@@ -46,7 +46,7 @@ if (args.TestUnknown() == false) exit(0);  // If there are leftover args, throw 
   world.Inject(*new_org);
   world.Resize(100,100);
   
-  for(int i=0; i<1000; i++) {
+  for(int i=0; i<100; i++) {
     //std::cout<< "Update: " << i << std::endl;
     //std::cout << "Population: " << world.GetNumOrgs() << std::endl;
     world.Update();
