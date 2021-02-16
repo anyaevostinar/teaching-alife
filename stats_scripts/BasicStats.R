@@ -5,7 +5,7 @@ require(scales)
 colors <- c("#673F03", "#7D3002", "#891901", "#A7000F", "#B50142", "#CD0778", "#D506AD", "#E401E7", "#AB08FF","#7B1DFF", "#5731FD","#5E8EFF", "#4755FF" ,"#6FC4FE", "#86E9FE", "#96FFF7", "#B2FCE3", "#BBFFDB", "#D4FFDD", "#EFFDF0")
 
 #Set your working directory
-setwd("~/Desktop/Teaching361/evo-algo/Example/")
+setwd("~/teaching-alife/Example/")
 
 #You can have whatever variables you want like this
 pop_cap <- 10000
@@ -18,6 +18,7 @@ initial_data <-cbind(initial_data, hist_0_prop=initial_data$hist_0/initial_data$
 
 #You can get just a portion of your data with subset
 early <- subset(initial_data, update<20)
+just_middle <- subset(initial_data, treatment==0.5)
 
 #If you have NaN values that you would like to be 0, this is how
 zeroed <- initial_data
@@ -30,4 +31,10 @@ ggplot(data=early, aes(x=update, y=coop, group=treatment, colour=treatment)) + y
 update_1 <- subset(initial_data, update==1)
 
 # This will make a point plot
-ggplot(data=update_1, aes(x=count, y=mean_coopval, group=treatment, colour=treatment)) +ylab("Mean Cooperation Value") + xlab("Number of Organisms") + geom_point()
+ggplot(data=update_1, aes(x=count, y=coop, group=treatment, colour=treatment)) +ylab("Mean Cooperation Value") + xlab("Number of Organisms") + geom_point()
+
+#Box plot
+ggplot(data=update_1, aes(x=Treatment, y=coop)) + geom_boxplot()
+
+# Non-parametric test to see if two sets of data are probably different
+wilcox.test(subset(update_1, treatment==1.0)$coop, subset(update_1, treatment=0.5)$coop)
